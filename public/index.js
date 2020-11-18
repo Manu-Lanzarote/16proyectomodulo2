@@ -49,7 +49,7 @@ function zonaBuceo() {
           <img src="${datos[i].imagen}" alt="Imagen">
           <h2>${datos[i].nombre}</h2>
           <p>${datos[i].descripcion}</p>
-          <button onclick="verInmersion()">Ver inmersión</button>
+          <button onclick="imprimirPuerto(${i})">Ver inmersión</button>
           <br><br>
           </div>
             `;
@@ -74,7 +74,7 @@ function zonaBuceo() {
           <img src="${datos[i].imagen}" alt="Imagen">
           <h2>${datos[i].nombre}</h2>
           <p>${datos[i].descripcion}</p>
-          <button onclick="verInmersion()">Ver inmersión</button>
+          <button onclick="imprimirMala(${i})">Ver inmersión</button>
           <br><br>
           </div>
             `;
@@ -95,15 +95,13 @@ function zonaBuceo() {
         let inmersiones = "";
         for (let i = 0; i < datos.length; i++) {
           inmersiones += `
-            <h2>${datos[i].nombre}</h2>
-            <p>${datos[i].descripcion}</p>
-            <img src="${datos[i].mapa}" alt="Imagen">
-            <p class="nivel">Nivel: ${datos[i].nivel}</p>
-            <span>Profundidad: ${datos[i].profundidad}</span> --
-            <span>Entrada: ${datos[i].entrada}</span> -- 
-            <span>Horario: ${datos[i].horario}</span> -- 
-            <span>Temperatura: ${datos[i].temperatura}</span>
-            <br><br>
+          <div class = "resultados">
+          <img src="${datos[i].imagen}" alt="Imagen">
+          <h2>${datos[i].nombre}</h2>
+          <p>${datos[i].descripcion}</p>
+          <button onclick="imprimirGraciosa(${i})">Ver inmersión</button>
+          <br><br>
+          </div>
             `;
         }
         document.getElementById("div1").innerHTML = inmersiones;
@@ -134,6 +132,174 @@ function zonaBuceo() {
 function imprimirPlayaBlanca(dato) {
   console.log(dato);
   fetch("/playablanca/")
+    .then(function (respuesta) {
+      return respuesta.json();
+    })
+    .then(function (datos) {
+      console.log(datos);
+
+      let miNombre = "";
+      let miDescripcion = "";
+      let miLugar = "";
+      let miNivel = "";
+      let miProfundidad = "";
+      let miEntrada = "";
+      let miHorario = "";
+      let miTemperatura = "";
+      let miMapa = "";
+      let miImagen = "";
+
+      for (let i = 0; i < datos.length; i++) {
+        miNombre = datos[dato].nombre;
+        miDescripcion = datos[dato].descripcion;
+        miLugar = datos[dato].lugar;
+        miNivel = datos[dato].nivel;
+        miProfundidad = datos[dato].profundidad;
+        miEntrada = datos[dato].entrada;
+        miHorario = datos[dato].horario;
+        miTemperatura = datos[dato].temperatura;
+        miMapa = datos[dato].mapa;
+        miImagen = datos[dato].imagen;
+      }
+      document.getElementById("miNombre").innerHTML = `<h2>${miNombre}</h2>`;
+      document.getElementById(
+        "miDescripcion"
+      ).innerHTML = `<p>${miDescripcion}</p>`;
+      document.getElementById("miLugar").innerHTML = `<p>${miLugar}</p>`;
+      document.getElementById("miNivel").innerHTML = `<p>${miNivel}</p>`;
+      document.getElementById(
+        "miProfundidad"
+      ).innerHTML = `<p>${miProfundidad}</p>`;
+      document.getElementById("miEntrada").innerHTML = `<p>${miEntrada}</p>`;
+      document.getElementById("miHorario").innerHTML = `<p>${miHorario}</p>`;
+      document.getElementById(
+        "miTemperatura"
+      ).innerHTML = `<p>${miTemperatura}</p>`;
+      document.getElementById(
+        "miMapa"
+      ).innerHTML = `<img src="${miMapa}" alt="Mapa">`;
+      document.getElementById(
+        "miImagen"
+      ).innerHTML = `<img src="${miImagen}" alt="Mapa">`;
+    });
+}
+
+//IMPRIMIR INMERSIÓN PUERTO DEL CARMEN EN PANTALLA
+function imprimirPuerto(dato) {
+  console.log(dato);
+  fetch("/puertodelcarmen/")
+    .then(function (respuesta) {
+      return respuesta.json();
+    })
+    .then(function (datos) {
+      console.log(datos);
+
+      let miNombre = "";
+      let miDescripcion = "";
+      let miLugar = "";
+      let miNivel = "";
+      let miProfundidad = "";
+      let miEntrada = "";
+      let miHorario = "";
+      let miTemperatura = "";
+      let miMapa = "";
+      let miImagen = "";
+
+      for (let i = 0; i < datos.length; i++) {
+        miNombre = datos[dato].nombre;
+        miDescripcion = datos[dato].descripcion;
+        miLugar = datos[dato].lugar;
+        miNivel = datos[dato].nivel;
+        miProfundidad = datos[dato].profundidad;
+        miEntrada = datos[dato].entrada;
+        miHorario = datos[dato].horario;
+        miTemperatura = datos[dato].temperatura;
+        miMapa = datos[dato].mapa;
+        miImagen = datos[dato].imagen;
+      }
+      document.getElementById("miNombre").innerHTML = `<h2>${miNombre}</h2>`;
+      document.getElementById(
+        "miDescripcion"
+      ).innerHTML = `<p>${miDescripcion}</p>`;
+      document.getElementById("miLugar").innerHTML = `<p>${miLugar}</p>`;
+      document.getElementById("miNivel").innerHTML = `<p>${miNivel}</p>`;
+      document.getElementById(
+        "miProfundidad"
+      ).innerHTML = `<p>${miProfundidad}</p>`;
+      document.getElementById("miEntrada").innerHTML = `<p>${miEntrada}</p>`;
+      document.getElementById("miHorario").innerHTML = `<p>${miHorario}</p>`;
+      document.getElementById(
+        "miTemperatura"
+      ).innerHTML = `<p>${miTemperatura}</p>`;
+      document.getElementById(
+        "miMapa"
+      ).innerHTML = `<img src="${miMapa}" alt="Mapa">`;
+      document.getElementById(
+        "miImagen"
+      ).innerHTML = `<img src="${miImagen}" alt="Mapa">`;
+    });
+}
+
+//IMPRIMIR INMERSIÓN LA GRACIOSA EN PANTALLA
+function imprimirGraciosa(dato) {
+  console.log(dato);
+  fetch("/lagraciosa/")
+    .then(function (respuesta) {
+      return respuesta.json();
+    })
+    .then(function (datos) {
+      console.log(datos);
+
+      let miNombre = "";
+      let miDescripcion = "";
+      let miLugar = "";
+      let miNivel = "";
+      let miProfundidad = "";
+      let miEntrada = "";
+      let miHorario = "";
+      let miTemperatura = "";
+      let miMapa = "";
+      let miImagen = "";
+
+      for (let i = 0; i < datos.length; i++) {
+        miNombre = datos[dato].nombre;
+        miDescripcion = datos[dato].descripcion;
+        miLugar = datos[dato].lugar;
+        miNivel = datos[dato].nivel;
+        miProfundidad = datos[dato].profundidad;
+        miEntrada = datos[dato].entrada;
+        miHorario = datos[dato].horario;
+        miTemperatura = datos[dato].temperatura;
+        miMapa = datos[dato].mapa;
+        miImagen = datos[dato].imagen;
+      }
+      document.getElementById("miNombre").innerHTML = `<h2>${miNombre}</h2>`;
+      document.getElementById(
+        "miDescripcion"
+      ).innerHTML = `<p>${miDescripcion}</p>`;
+      document.getElementById("miLugar").innerHTML = `<p>${miLugar}</p>`;
+      document.getElementById("miNivel").innerHTML = `<p>${miNivel}</p>`;
+      document.getElementById(
+        "miProfundidad"
+      ).innerHTML = `<p>${miProfundidad}</p>`;
+      document.getElementById("miEntrada").innerHTML = `<p>${miEntrada}</p>`;
+      document.getElementById("miHorario").innerHTML = `<p>${miHorario}</p>`;
+      document.getElementById(
+        "miTemperatura"
+      ).innerHTML = `<p>${miTemperatura}</p>`;
+      document.getElementById(
+        "miMapa"
+      ).innerHTML = `<img src="${miMapa}" alt="Mapa">`;
+      document.getElementById(
+        "miImagen"
+      ).innerHTML = `<img src="${miImagen}" alt="Mapa">`;
+    });
+}
+
+//IMPRIMIR INMERSION MALA EN PANTALLA
+function imprimirMala(dato) {
+  console.log(dato);
+  fetch("/mala/")
     .then(function (respuesta) {
       return respuesta.json();
     })
