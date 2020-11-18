@@ -1,9 +1,10 @@
-//Buscar zona de buceo.
+let inmprimir = "";
 
+//Buscar zona de buceo.
 function zonaBuceo() {
   //Traigo del index.html la zona de buceo que el usuario quiere ver
   let zonaBuceo = document.getElementById("lugar").value;
-  console.log(zonaBuceo);
+  //console.log(zonaBuceo);
   let toUpperZonaBuceo = zonaBuceo.toUpperCase();
 
   //Creo un fetch por cada una de las zonas de buceo.
@@ -23,7 +24,7 @@ function zonaBuceo() {
           <img src="${datos[i].imagen}" alt="Imagen">
             <h2>${datos[i].nombre}</h2>
             <p>${datos[i].descripcion}</p>
-            <button onclick="imprimirPlayaBlanca()">Ver inmersión</button>
+            <button onclick="imprimirPlayaBlanca(${i})">Ver inmersión</button>
             <br><br>
             </div>
             `;
@@ -129,8 +130,58 @@ function zonaBuceo() {
   }
 }
 
-//////IMPRIMIR INMERSIÓN PLAYA BLANCA EN PANTALLA
-function imprimirPlayaBlanca() {
-  console.log("prueba");
-  document.getElementById("prueba").innerHTML = `prueba`;
+// //////IMPRIMIR INMERSIÓN PLAYA BLANCA EN PANTALLA
+function imprimirPlayaBlanca(dato) {
+  console.log(dato);
+  fetch("/playablanca/")
+    .then(function (respuesta) {
+      return respuesta.json();
+    })
+    .then(function (datos) {
+      console.log(datos);
+
+      let miNombre = "";
+      let miDescripcion = "";
+      let miLugar = "";
+      let miNivel = "";
+      let miProfundidad = "";
+      let miEntrada = "";
+      let miHorario = "";
+      let miTemperatura = "";
+      let miMapa = "";
+      let miImagen = "";
+
+      for (let i = 0; i < datos.length; i++) {
+        miNombre = datos[dato].nombre;
+        miDescripcion = datos[dato].descripcion;
+        miLugar = datos[dato].lugar;
+        miNivel = datos[dato].nivel;
+        miProfundidad = datos[dato].profundidad;
+        miEntrada = datos[dato].entrada;
+        miHorario = datos[dato].horario;
+        miTemperatura = datos[dato].temperatura;
+        miMapa = datos[dato].mapa;
+        miImagen = datos[dato].imagen;
+      }
+      document.getElementById("miNombre").innerHTML = `<h2>${miNombre}</h2>`;
+      document.getElementById(
+        "miDescripcion"
+      ).innerHTML = `<p>${miDescripcion}</p>`;
+      document.getElementById("miLugar").innerHTML = `<p>${miLugar}</p>`;
+      document.getElementById("miNivel").innerHTML = `<p>${miNivel}</p>`;
+      document.getElementById(
+        "miProfundidad"
+      ).innerHTML = `<p>${miProfundidad}</p>`;
+      document.getElementById("miEntrada").innerHTML = `<p>${miEntrada}</p>`;
+      document.getElementById("miHorario").innerHTML = `<p>${miHorario}</p>`;
+      document.getElementById(
+        "miTemperatura"
+      ).innerHTML = `<p>${miTemperatura}</p>`;
+      document.getElementById(
+        "miMapa"
+      ).innerHTML = `<img src="${miMapa}" alt="Mapa">`;
+      document.getElementById(
+        "miImagen"
+      ).innerHTML = `<img src="${miImagen}" alt="Mapa">`;
+    });
 }
