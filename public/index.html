@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lanzarote Dive Sites</title>
+    <link
+      rel="icon"
+      href="./imagenes/Logo Buceo CID Lanzarote 45.png"
+      type="favicon"
+    />
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <!-- Iconos fontawesome -->
+    <script
+      src="https://kit.fontawesome.com/4ff9607121.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <div class="head">
+        <img
+          src="./imagenes/logo120x120-1.png"
+          alt="Logo Buceo CID Lanzarote"
+          id="logo"
+        />
+      </div>
+    </header>
+    <main>
+      <h1>GUÍA DE INMERSIONES DE LANZAROTE</h1>
+      <div id="prueba"></div>
+
+      <section class="zonas">
+        <h2>¿Donde quieres bucear?</h2>
+        <br />
+        <p>Selecciona tu zona de buceo</p>
+        <p>(Puerto del Carmen, Playa Blanca, Mala o La Graciosa)</p>
+        <br />
+        <input
+          type="text"
+          id="lugar"
+          placeholder="Zona de buceo"
+          class="input"
+        />
+        <button onclick="zonaBuceo()" class="boton">Ver inmersiones</button>
+        <br /><br />
+      </section>
+      <section id="div1" class="flex"></section>
+      <section class="dive">
+        <div class="bloque1">
+          <div class="video">
+            <img
+              src="https://cidlanzarote.com/wp-content/uploads/2017/06/youtube-bluehole.jpg"
+              alt="Blue Hole"
+              id="unaImagen"
+            />
+          </div>
+          <div class="contenido">
+            <h2 id="prueba">Blue Hole</h2>
+            <p>
+              Las dos caras del Blue Hole nos abren las puertas a un rincón de
+              Playa Chica que nos enamora irremediablemente.<br /><br />
+              A menudo llegamos a un punto en el que sólo hay que dejar de
+              aletear, relajarse y disfrutar del espectáculo de la vida.
+              <br />Imprescindible.
+            </p>
+          </div>
+        </div>
+        <div>
+          <h2 id="bucear">
+            BUCEAR<br />
+            EN LANZAROTE &nbsp;&nbsp;&nbsp;&nbsp;
+          </h2>
+        </div>
+        <div class="bloque2">
+          <div class="datos">
+            <div>
+              <i class="fas fa-star"></i>
+              <p>Pto. del Carmen</p>
+            </div>
+            <div>
+              <i class="fas fa-user"></i>
+              <p>PADI AOWD</p>
+            </div>
+            <div>
+              <i class="fas fa-sort-amount-down"></i>
+              <p>30 mts.</p>
+            </div>
+            <div>
+              <i class="fas fa-flag"></i>
+              <p>Costa / Shore</p>
+            </div>
+            <div>
+              <i class="fas fa-history"></i>
+              <p>09:00 / 22:00</p>
+            </div>
+            <div>
+              <i class="fas fa-certificate"></i>
+              <p>17º / 24º</p>
+            </div>
+          </div>
+          <div class="mapa">
+            <img
+              src="https://cidlanzarote.com/wp-content/uploads/2017/06/blue_hole-compressor.jpg"
+              alt="Mapa"
+              id="unMapa"
+            />
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <h2>BUCEO CID LANZAROTE</h2>
+      <address>C/ Alemania, 1 - CP: 35510 - Lanzarote SPAIN</address>
+      <a href="tel:+34639056797" id="telefono">Teléfono +34 639 05 67 97</a
+      ><span> - Email: madrid29@hotmail.com</span>
+      <p id="power">Powered by Manu Lanzarote</p>
+      <br />
+      <i class="fab fa-facebook"></i>
+      <i class="fab fa-instagram"></i>
+      <i class="fab fa-youtube"></i>
+    </footer>
+    <script src="./index.js"></script>
+  </body>
+</html>
