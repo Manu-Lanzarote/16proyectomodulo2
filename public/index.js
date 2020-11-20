@@ -448,8 +448,6 @@ function borrarInmersion() {
     nombre,
   };
 
-  console.log(eliminar);
-
   fetch("/borrarInmersion/", {
     method: "DELETE",
     headers: {
@@ -464,4 +462,18 @@ function borrarInmersion() {
       console.log(datos);
       alert("INMERSIÓN BORRADA CON ÉXITO");
     });
+}
+
+//Botón AREA ADMIN
+let nombre = "";
+let contrasenya = "";
+function areaAdmin() {
+  nombre = document.getElementById("nombre").value;
+  contrasenya = document.getElementById("contrasenya").value;
+  console.log(nombre, contrasenya);
+  if (nombre === "manu" && contrasenya === "12345") {
+    location.replace("/user.html");
+  } else {
+    alert("USUARIO O CONTRASEÑA INCORRECTAS");
+  }
 }

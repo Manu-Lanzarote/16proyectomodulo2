@@ -143,3 +143,5 @@ app.delete("/borrarInmersion/", function (req, res) {
     }
   });
 });
+
+//Botón AREA ADMIN - Recibe el nombre de usuario y la contraseña en el header
