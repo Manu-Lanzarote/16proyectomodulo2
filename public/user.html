@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lanzarote Dive Sites</title>
+    <link
+      rel="icon"
+      href="./imagenes/Logo Buceo CID Lanzarote 45.png"
+      type="favicon"
+    />
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <!-- Iconos fontawesome -->
+    <script
+      src="https://kit.fontawesome.com/4ff9607121.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <div class="head">
+        <img
+          src="./imagenes/logo120x120-1.png"
+          alt="Logo Buceo CID Lanzarote"
+          id="logo"
+        />
+      </div>
+      <div class="usuario">
+        <a id="botonUser" href="./index.html">SITIO WEB</a>
+      </div>
+    </header>
+
+    <main>
+      <h1 id="panel">PANEL DE CONTROL</h1>
+      <div class="contenedorUno">
+        <div class="contenedor">
+          <h2>INTRODUCE UNA NUEVA INMERSIÓN</h2>
+          <div class="nuevoDato">
+            <label>Imagen: </label>
+            <input
+              type="text"
+              placeholder="Imagen de la inmersión"
+              id="nuevaImagen"
+            />
+          </div>
+          <div class="nuevoDato">
+            <label>Zona de inmersión: </label>
+            <input
+              type="text"
+              placeholder="Zona de inmersión"
+              id="nuevoLugar"
+            />
+          </div>
+          <div class="nuevoDato">
+            <label>Nombre: </label>
+            <input
+              type="text"
+              placeholder="Nombre de la inmersión"
+              id="nuevoNombre"
+            />
+          </div>
+          <div class="nuevoDato">
+            <label>Descripción: </label>
+            <input
+              type="text"
+              placeholder="Descripción"
+              id="nuevaDescripcion"
+            />
+          </div>
+          <div class="nuevoDato">
+            <label>Mapa de la inmersión: </label>
+            <input type="text" placeholder="Mapa" id="nuevoMapa" />
+          </div>
+          <div class="nuevoDato">
+            <label>Nivel requerido: </label>
+            <input type="text" placeholder="Nivel" id="nuevoNivel" />
+          </div>
+          <div class="nuevoDato">
+            <label>Profundidad: </label>
+            <input
+              type="text"
+              placeholder="Profundidad"
+              id="nuevaProfundidad"
+            />
+          </div>
+          <div class="nuevoDato">
+            <label>Entrada: </label>
+            <input type="text" placeholder="Entrada" id="nuevaEntrada" />
+          </div>
+          <div class="nuevoDato">
+            <label>Horario: </label>
+            <input type="text" placeholder="Horario" id="nuevoHorario" />
+          </div>
+          <div class="nuevoDato">
+            <label>Temperatura del agua: </label>
+            <input
+              type="text"
+              placeholder="Temperatura"
+              id="nuevaTemperatura"
+            />
+          </div>
+          <button onclick="nuevaInmersion()" class="boton">
+            INTRODUCIR NUEVA INMERSIÓN
+          </button>
+        </div>
+        <div class="contenedor">
+          <h2>EDITAR INMERSIÓN</h2>
+          <div class="nuevoDato">
+            <label>Imagen: </label>
+            <input
+              type="text"
+              placeholder="Imagen de la inmersión"
+              id="mo_Imagen"
+            />
+          </div>
+          <div class="nuevoDato">
+            <label id="red1">Clave: </label>
+            <input
+              type="text"
+              placeholder="Zona de inmersión"
+              id="mo_Lugar"
+              class="red2"
+            />
+          </div>
+          <div class="nuevoDato">
+            <label id="red1">Clave: </label>
+            <input
+              type="text"
+              placeholder="Nombre de la inmersión"
+              id="mo_Nombre"
+              class="red2"
+            />
+          </div>
+          <div class="nuevoDato">
+            <label>Descripción: </label>
+            <input type="text" placeholder="Descripción" id="mo_Descripcion" />
+          </div>
+          <div class="nuevoDato">
+            <label>Mapa de la inmersión: </label>
+            <input type="text" placeholder="Mapa" id="mo_Mapa" />
+          </div>
+          <div class="nuevoDato">
+            <label>Nivel requerido: </label>
+            <input type="text" placeholder="Nivel" id="mo_Nivel" />
+          </div>
+          <div class="nuevoDato">
+            <label>Profundidad: </label>
+            <input type="text" placeholder="Profundidad" id="mo_Profundidad" />
+          </div>
+          <div class="nuevoDato">
+            <label>Entrada: </label>
+            <input type="text" placeholder="Entrada" id="mo_Entrada" />
+          </div>
+          <div class="nuevoDato">
+            <label>Horario: </label>
+            <input type="text" placeholder="Horario" id="mo_Horario" />
+          </div>
+          <div class="nuevoDato">
+            <label>Temperatura del agua: </label>
+            <input type="text" placeholder="Temperatura" id="mo_Temperatura" />
+          </div>
+          <button onclick="editarInmersion()" class="boton" class="boton2">
+            EDITAR INMERSIÓN
+          </button>
+        </div>
+      </div>
+      <div class="separador"></div>
+
+      <div class="contenedor2">
+        <h2>BORRAR INMERSIÓN</h2>
+        <div class="formBorrar">
+          <label id="red1">Clave: </label>
+          <input
+            type="text"
+            placeholder="Nombre de la inmersión"
+            id="nuevaZona"
+            class="red2"
+          />
+          <button onclick="borrar()" class="boton">BORRAR INMERSIÓN</button>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <h2>BUCEO CID LANZAROTE</h2>
+      <address>C/ Alemania, 1 - CP: 35510 - Lanzarote SPAIN</address>
+      <a href="tel:+34639056797" id="telefono">Teléfono +34 639 05 67 97</a
+      ><span> - Email: madrid29@hotmail.com</span>
+      <p id="power">Powered by Manu Lanzarote</p>
+      <br />
+      <i class="fab fa-facebook"></i>
+      <i class="fab fa-instagram"></i>
+      <i class="fab fa-youtube"></i>
+    </footer>
+    <script src="./index.js"></script>
+  </body>
+</html>

@@ -73,7 +73,7 @@ app.get("/puertodelcarmen/", function (req, res) {
     });
 });
 
-//Ruta post para dar al usuario la posibilidad de añadir nuevos puntos de inmersión
+//Ruta post para dar al usuario la posibilidad de AÑADIR nuevos puntos de inmersión
 app.post("/anyadir-inmersion/", function (req, res) {
   const nuevaInmersion = req.body;
   db.collection(req.body.lugar).insertOne(nuevaInmersion, function (
@@ -89,3 +89,57 @@ app.post("/anyadir-inmersion/", function (req, res) {
 });
 
 app.listen(3000);
+
+//Ruta PUT para dar al usuario la posibilidad de MODIFICAR una inmersión
+app.put("/editarInmersion/", function (req, res) {
+  let editarInmersion = {
+    imagen: req.body.imagen,
+    lugar: req.body.lugar,
+    nombre: req.body.nombre,
+    descripcion: req.body.descripcion,
+    mapa: req.body.mapa,
+    nivel: req.body.nivel,
+    profundidad: req.body.profundidad,
+    entrada: req.body.entrada,
+    horario: req.body.horario,
+    temperatura: req.body.temperatura,
+  };
+  db.collection(`${editarInmersion.lugar}`).updateOne(
+    { nombre: editarInmersion.nombre },
+    {
+      $set: {
+        imagen: editarInmersion.imagen,
+        descripcion: editarInmersion.descripcion,
+        mapa: editarInmersion.mapa,
+        nivel: editarInmersion.nivel,
+        profundidad: editarInmersion.profundidad,
+        entrada: editarInmersion.entrada,
+        horario: editarInmersion.horario,
+        temperatura: editarInmersion.temperatura,
+      },
+    },
+    function (err, datos) {
+      if (err !== null) {
+        res.send(err);
+      } else {
+        res.send(datos);
+      }
+    }
+  );
+});
+
+//Ruta DELETE para borrar una inmersión
+app.delete("/borrarInmersion/", function (req, res) {
+  let lugar = req.body.lugar;
+  let nombre = req.body.nombre;
+  db.collection(`${lugar}`).deleteOne({ nombre: nombre }, function (
+    err,
+    datos
+  ) {
+    if (err !== null) {
+      res.send(err);
+    } else {
+      res.send(datos);
+    }
+  });
+});

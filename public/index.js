@@ -351,3 +351,89 @@ function imprimirMala(dato) {
       ).innerHTML = `<img src="${miImagen}" alt="Mapa">`;
     });
 }
+
+///// introducir una nueva inmersión //////////////////////
+function nuevaInmersion() {
+  let imagen = document.getElementById("nuevaImagen").value;
+  let lugar = document.getElementById("nuevoLugar").value.toUpperCase(); //Mayúscula
+  let nombre = document.getElementById("nuevoNombre").value;
+  let descripcion = document.getElementById("nuevaDescripcion").value;
+  let mapa = document.getElementById("nuevoMapa").value;
+  let nivel = document.getElementById("nuevoNivel").value;
+  let profundidad = document.getElementById("nuevaProfundidad").value;
+  let entrada = document.getElementById("nuevaEntrada").value;
+  let horario = document.getElementById("nuevoHorario").value;
+  let temperatura = document.getElementById("nuevaTemperatura").value;
+
+  let anyadirInmersion = {
+    imagen,
+    lugar,
+    nombre,
+    descripcion,
+    mapa,
+    nivel,
+    profundidad,
+    entrada,
+    horario,
+    temperatura,
+  };
+  //console.log(anyadirInmersion);
+
+  fetch("/anyadir-inmersion/", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(anyadirInmersion),
+  })
+    .then(function (res) {
+      return res.json();
+    })
+    .then(function (datos) {
+      //console.log(datos);
+      alert("INMERSIÓN AÑADIDA A LA BASE DE DATOS");
+    });
+}
+
+////////// Modificar inmersión existente /////////////////
+function editarInmersion() {
+  let imagen = document.getElementById("mo_Imagen").value;
+  let lugar = document.getElementById("mo_Lugar").value.toUpperCase(); //Mayúscula
+  let nombre = document.getElementById("mo_Nombre").value;
+  let descripcion = document.getElementById("mo_Descripcion").value;
+  let mapa = document.getElementById("mo_Mapa").value;
+  let nivel = document.getElementById("mo_Nivel").value;
+  let profundidad = document.getElementById("mo_Profundidad").value;
+  let entrada = document.getElementById("mo_Entrada").value;
+  let horario = document.getElementById("mo_Horario").value;
+  let temperatura = document.getElementById("mo_Temperatura").value;
+
+  let editar = {
+    imagen,
+    lugar,
+    nombre,
+    descripcion,
+    mapa,
+    nivel,
+    profundidad,
+    entrada,
+    horario,
+    temperatura,
+  };
+  console.log(editar);
+
+  fetch("/editarInmersion/", {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(editar),
+  })
+    .then(function (res) {
+      return res.json();
+    })
+    .then(function (datos) {
+      // console.log(datos);
+      alert("INMERSIÓN EDITADA CON ÉXITO");
+    });
+}
