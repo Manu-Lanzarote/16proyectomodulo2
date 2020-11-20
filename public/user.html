@@ -120,7 +120,7 @@
             />
           </div>
           <div class="nuevoDato">
-            <label id="red1">Clave: </label>
+            <label id="red1">Campo requerido: </label>
             <input
               type="text"
               placeholder="Zona de inmersión"
@@ -129,7 +129,7 @@
             />
           </div>
           <div class="nuevoDato">
-            <label id="red1">Clave: </label>
+            <label id="red1">Campo requerido: </label>
             <input
               type="text"
               placeholder="Nombre de la inmersión"
@@ -175,14 +175,23 @@
       <div class="contenedor2">
         <h2>BORRAR INMERSIÓN</h2>
         <div class="formBorrar">
-          <label id="red1">Clave: </label>
+          <label id="red1">Campo requerido: </label>
+          <input
+            type="text"
+            placeholder="Zona de inmersión"
+            id="borrarLugar"
+            class="red2"
+          />
+          <label id="red1">Campo requerido: </label>
           <input
             type="text"
             placeholder="Nombre de la inmersión"
-            id="nuevaZona"
+            id="borrarNombre"
             class="red2"
           />
-          <button onclick="borrar()" class="boton">BORRAR INMERSIÓN</button>
+          <button onclick="borrarInmersion()" class="boton">
+            BORRAR INMERSIÓN
+          </button>
         </div>
       </div>
     </main>

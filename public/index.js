@@ -437,3 +437,31 @@ function editarInmersion() {
       alert("INMERSIÓN EDITADA CON ÉXITO");
     });
 }
+
+///////// Borrar inmersión //////TODO/////////
+function borrarInmersion() {
+  let lugar = document.getElementById("borrarLugar").value.toUpperCase();
+  let nombre = document.getElementById("borrarNombre").value;
+
+  let eliminar = {
+    lugar,
+    nombre,
+  };
+
+  console.log(eliminar);
+
+  fetch("/borrarInmersion/", {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(eliminar),
+  })
+    .then(function (res) {
+      return res.json();
+    })
+    .then(function (datos) {
+      console.log(datos);
+      alert("INMERSIÓN BORRADA CON ÉXITO");
+    });
+}
